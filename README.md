@@ -13,7 +13,8 @@ A voice-powered interview assistant that uses AI to conduct real-time interview 
 
 ## 🏗️ Architecture
 
-![System Architecture](https://raw.githubusercontent.com/Hrithik-12/voice-chat-bot/main/architecture-diagram.png)
+<img width="1598" height="1450" alt="diagram-export-05-10-2025-13_08_47" src="https://github.com/user-attachments/assets/d92a8144-e767-41a7-a243-4d89855aa87b" />
+
 
 ### Flow Diagram
 
@@ -230,13 +231,13 @@ Modify Tailwind classes in `InterviewBot.tsx` or update `tailwind.config.ts`.
 
 This project is open source and available under the [MIT License](LICENSE).
 
-## 👨‍💻 Author
+##  Author
 
 **Hrithik Garg**
 - GitHub: [@Hrithik-12](https://github.com/Hrithik-12)
-- LinkedIn: [Hrithik Garg](https://linkedin.com/in/hrithik-garg)
+- LinkedIn: [Hrithik Garg](https://www.linkedin.com/in/hrithikgarg1/)
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - [Next.js](https://nextjs.org/) - React Framework
 - [AssemblyAI](https://www.assemblyai.com/) - Speech-to-Text API
@@ -244,9 +245,7 @@ This project is open source and available under the [MIT License](LICENSE).
 - [Lucide](https://lucide.dev/) - Icon Library
 - [Tailwind CSS](https://tailwindcss.com/) - CSS Framework
 
-## 📞 Support
 
-For questions or issues, please [open an issue](https://github.com/Hrithik-12/voice-chat-bot/issues) on GitHub.
 
 ---
 
