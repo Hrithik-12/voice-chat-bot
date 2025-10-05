@@ -13,7 +13,11 @@ const assemblyai = new AssemblyAI({
 });
 
 // Conversation history store (in production, use Redis/database)
-const conversationHistory = new Map<string, any[]>();
+interface ChatMessage {
+  role: string;
+  parts: Array<{ text: string }>;
+}
+const conversationHistory = new Map<string, ChatMessage[]>();
 
 export async function POST(request: NextRequest) {
   try {
@@ -80,7 +84,7 @@ export async function POST(request: NextRequest) {
     });
 
     // Get or initialize conversation history
-    let history = conversationHistory.get(sessionId) || [
+    const history = conversationHistory.get(sessionId) || [
       { role: 'user', parts: [{ text: YOUR_PERSONAL_INFO }] },
       { role: 'model', parts: [{ text: 'I understand. I will answer all interview questions as you.' }] }
     ];
@@ -110,10 +114,10 @@ export async function POST(request: NextRequest) {
       sessionId
     });
 
-  } catch (error: any) {
+  } catch (error) {
     console.error('Error processing interview:', error);
     return NextResponse.json(
-      { error: error.message || 'Failed to process interview' },
+      { error: error instanceof Error ? error.message : 'Failed to process interview' },
       { status: 500 }
     );
   }

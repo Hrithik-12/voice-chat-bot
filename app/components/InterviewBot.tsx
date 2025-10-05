@@ -3,7 +3,7 @@
 // ============================================
 'use client';
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Mic, Square, Loader2, Volume2, AlertCircle } from 'lucide-react';
 
 const SAMPLE_QUESTIONS = [
@@ -24,12 +24,7 @@ export default function InterviewBot() {
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const audioChunksRef = useRef<Blob[]>([]);
 
-  useEffect(() => {
-    // Load initial greeting
-    loadGreeting();
-  }, []);
-
-  const loadGreeting = async () => {
+  const loadGreeting = useCallback(async () => {
     try {
       const formData = new FormData();
       formData.append('action', 'greeting');
@@ -47,7 +42,12 @@ export default function InterviewBot() {
     } catch (err) {
       console.error('Failed to load greeting:', err);
     }
-  };
+  }, [sessionId]);
+
+  useEffect(() => {
+    // Load initial greeting
+    loadGreeting();
+  }, [loadGreeting]);
 
   const startRecording = async () => {
     try {
@@ -121,8 +121,8 @@ export default function InterviewBot() {
       await speakText(data.answer);
       setStatus('idle');
       
-    } catch (err: any) {
-      setError(err.message || 'Failed to process audio. Please try again.');
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to process audio. Please try again.');
       setStatus('idle');
       console.error('Error processing audio:', err);
     }
@@ -186,7 +186,7 @@ export default function InterviewBot() {
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-800 mb-2">
-            🎯 100x AI Interview Bot
+            Voice chat Bot 
           </h1>
           <p className="text-gray-600">
             Voice-powered interview assistant for Hrithik Garg
