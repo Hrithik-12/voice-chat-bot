@@ -2,6 +2,12 @@
 
 A voice-powered interview assistant that uses AI to conduct real-time interview conversations. Built with Next.js, AssemblyAI for speech-to-text, Google's Gemini AI for intelligent responses, and browser-based text-to-speech.
 
+## 🌐 Live Demo
+
+**Try it now:** [https://voice-chat-bot-xsdf.vercel.app/](https://voice-chat-bot-xsdf.vercel.app/)
+
+No setup required - just click the link and start interviewing! 🎤
+
 ## ✨ Features
 
 -  **Voice Input**: Record your answers using your microphone
